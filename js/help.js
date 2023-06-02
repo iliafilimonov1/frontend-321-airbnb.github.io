@@ -1,14 +1,3 @@
-/* header links */
-const links = document.querySelectorAll('.header-nav__link');
-
-links.forEach(link => {
-  link.addEventListener('click', event => {
-    document.querySelector('.header-nav__link.link-active').classList.remove('link-active');
-    event.currentTarget.classList.add('link-active');
-  })
-})
-
-
 /* dropdown */
 const dropDownButton = document.querySelector('.dropdown-button');
 const dropDownMenu = document.querySelector('.dropdown-menu');
@@ -21,22 +10,32 @@ dropDownButton.addEventListener('click', () => {
 
 /* кли вне пунктов меню */
 document.addEventListener('click', (event) => {
-  if(!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-button')) {
+  if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-button')) {
     dropDownMenu.classList.remove('dropdown-show');
   }
 })
 
 
-/* модалка become a host */
-const modal = document.querySelector('#modal'); // получение доступа к модалке
-const host = document.querySelector('#host'); // доступ к Become a host
-const closeModal = document.querySelector('#close-button'); // доступ к кнопке Close Modal внутри модалки
+/* help-search */
+const inputSearch = document.querySelector('.input-search');
+const searchMenu = document.querySelector('.search-menu');
 
-host.addEventListener("click", () => {
-  modal.showModal();
-});
+/* вкл/выкл выпадающего списка */
+inputSearch.addEventListener('click', () => {
+  searchMenu.classList.add('search-show');
+})
 
+// закрытие выпадающего списка по клику на пункты меню
+const searchArticles = document.querySelectorAll('.search-menu__items');
+searchArticles.forEach(item => {
+  item.addEventListener('click', () => {
+    searchMenu.classList.remove('search-show');
+  })
+})
 
-closeModal.addEventListener("click", () => {
-  modal.close();
-});
+/* кли вне пунктов меню */
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.search-menu') && !event.target.closest('.input-search')) {
+    searchMenu.classList.remove('search-show');
+  }
+})

@@ -1,0 +1,129 @@
+.help {
+  padding-top: 24px;
+}
+
+.help-search {
+  display: inline-flex;
+  align-items: center;
+  background: #f7f7f7;
+  border: 1px solid #dddddd;
+  border-radius: 100px;
+  width: 300px;
+}
+
+.help-search:hover {
+  background-color: #ebebeb;
+}
+
+/* input[type="search"]:has(.help-search)  {
+  box-shadow: inset 0 0 0 2px #222222;
+} */
+
+.help-search__wrapper {
+  padding: 0 50px;
+  position: relative;
+}
+
+.help-search input[type="search"] {
+  width: 100%;
+  border-radius: 24px;
+  padding: 15px 12px 15px 24px;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  color: #222222;
+  background-color: transparent;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.help-search input[type="search"]::placeholder {
+  font-size: 16px;
+  color: #222222;
+}
+
+/* input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #dddd;
+  border-radius: 50%;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+
+/* search menu */
+.search-menu {
+  display: none;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 32px;
+  padding: 12px 0;
+  background: #fff;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-top: 34px;
+  padding: 8px 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.search-show {
+  display: inline-flex;
+}
+
+.search-menu__article {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  width: 100%;
+}
+
+.search-menu__article:hover {
+  background-color: var(--bg-hover);
+}
+
+.block-image {
+  background: #ebebeb;
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 16px;
+}
+
+.block-description p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .search-menu .search-menu__text {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 240px;
+  overflow-x: hidden;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+.search-menu a:hover {
+  background-color: var(--bg-hover);
+} */
