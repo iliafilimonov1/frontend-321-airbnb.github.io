@@ -27,7 +27,8 @@ textarea::placeholder {
   color: var(--label-color);
 }
 
-input:not([type="checkbox"]):focus,
+input:not([type="checkbox"]):focus
+input:not([type="search"]):focus,
 textarea:focus {
   box-shadow: var(--box-shadow);
 }
@@ -157,11 +158,11 @@ textarea {
 /* modal-checkbox */
 @supports(-webkit-appearance: none) or (-moz-appearance: none) {
   .modal-checkbox {
-    --active: var( --checkbox-bg-color-checked);
+    --active: var(--checkbox-bg-color-checked);
     --active-inner: var(--checkbox-mark-color);
-    --focus: 1px var( --checkbox-bg-color-checked);
+    --focus: 1px var(--checkbox-bg-color-checked);
     --border: var(--checkbox-border-color);
-    --border-hover: var( --checkbox-bg-color-checked);
+    --border-hover: var(--checkbox-bg-color-checked);
     --background: var(--checkbox-bg-color-default);
     --disabled: #F6F8FF;
     --disabled-inner: #E1E6F9;
@@ -366,6 +367,22 @@ textarea {
 
 .btn-icon:hover {
   background-color: var(--bg-hover);
+}
+
+
+/* btn-search */
+.btn-search {
+  padding: 9px;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at center, #FF385C 0%, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+  margin-right: 8px;
+  min-height: 34px
+}
+
+.btn-search svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
 }
 
 

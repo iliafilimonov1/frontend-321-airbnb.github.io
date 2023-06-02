@@ -3,6 +3,7 @@
 @import "../css/forms.css";
 @import "../lib/swiper.css";
 @import "../css/modal.css";
+@import "../css/help.css";
 
 
 
@@ -125,6 +126,12 @@ img {
 .link-active::after {
   background-color: var(--accent-color);
   transform: scaleX(1);
+}
+
+.header-buttons {
+  display: inline-flex;
+  width: 15%;
+  justify-content: space-between;
 }
 
 
