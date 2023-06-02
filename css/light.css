@@ -1,0 +1,74 @@
+:root {
+  --body-color: #ffffff; /* общий фон */
+
+
+  --title-color: #222222; /* цвет заголовков */
+  --subtitle-color: #42526B; /* цвет подзаголовков */
+
+  --nav-link-color: #222222; /* цвет ссылок в навигации */
+
+  --accent-color: #FF385C; /* основной цвет тем */
+
+  --bg-hover: #F7F7F7;
+
+  --label-color: #717171; /* цвет текста label, placeholder */
+
+  --avatar-bg: #717171; /* цвет аватар */
+
+
+  /* dropdown */
+  --dropdown-button-bg: #ffffff;
+  --dropdown-border-color: #ddd;
+  --dropdown-box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+
+  /* footer */
+  --footer-bg: #f7f7f7;
+  --footer-link-color: #222222;
+}
+
+/* logo */
+.header-logo svg {
+  --logo-fill: #22222;
+}
+
+
+/* btn-primary */
+.btn-primary {
+  --button-bg-color: #FF385C;
+  --button-content-color: #ffffff;
+}
+
+/* btn-dark */
+.btn-dark {
+  --button-content-color: #fff;
+  --button-bg-color: #222222;
+}
+
+
+/* forms */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type="tel"],
+textarea {
+  --input-bg-color: #ffffff;
+  --input-border-color: #B0B0B0;
+  --input-text-color: #222222;
+}
+
+input:not([type="checkbox"]):focus,
+textarea:focus {
+  --box-shadow: inset 0 0 0 2px #222222;
+}
+
+
+/* чекбокс в модалке */
+.modal-checkbox {
+  --checkbox-bg-color-default: #ffffff;
+  --checkbox-bg-color-checked: #FF385C;
+  --checkbox-mark-color: #ffffff;
+  --checkbox-border-color: #B0B0B0;
+}
+
+
+
