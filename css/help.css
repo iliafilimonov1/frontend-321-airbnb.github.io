@@ -22,6 +22,7 @@
 .help-search__wrapper {
   padding: 0 50px;
   position: relative;
+  /* z-index: 0; */
 }
 
 .help-search input[type="search"] {
@@ -35,6 +36,7 @@
   background-color: transparent;
   white-space: nowrap;
   text-overflow: ellipsis;
+   /* z-index: 0; */
 }
 
 .help-search input[type="search"]::placeholder {
