@@ -36,7 +36,7 @@
   background-color: transparent;
   white-space: nowrap;
   text-overflow: ellipsis;
-   /* z-index: 0; */
+  /* z-index: 0; */
 }
 
 .help-search input[type="search"]::placeholder {
@@ -129,3 +129,16 @@ input[type="search"]::-webkit-search-cancel-button {
 .search-menu a:hover {
   background-color: var(--bg-hover);
 } */
+
+
+/* products-wrapper */
+.products-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: aquamarine;
+}
+
+.cards-wrapper {
+  margin-bottom: 20px;
+}
