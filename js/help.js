@@ -1,47 +1,31 @@
+import { data } from './data.js';
+
 /* карточки */
-const fetchData = () => {
-  return fetch('../data.json')
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return res.json();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      return [];
-    });
-};
+const renderData = () => {
+  const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-const renderData = async () => {
-  try {
-    const products = await fetchData();
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
-
-    if (swiperWrapper) {
-      products.forEach(product => {
-        const div = document.createElement('div');
-        div.classList.add('swiper-slide');
-
-        div.innerHTML = `
-          <a class="card-link" href="help-details.html?id=${product?.id}" target="_blank" rel="noopener noreferrer nofollow"></a>
-          <div class="card">
-            <div class="card-image">
-              <img src="${product?.imgSrc}" alt="image">
-            </div>
-            <h3 class="card-text__name">${product?.name}</h3>
-            <p class="card-text__description">${product?.description}</p>
-          </div>
-        `;
-
-        swiperWrapper.appendChild(div);
-      });
-    } else {
-      console.error('Element with class "swiper-wrapper" not found');
-    }
-  } catch (error) {
-    console.error('Error:', error);
+  if (!swiperWrapper) {
+    console.error('Element with class "swiper-wrapper" not found');
+    return;
   }
+
+  data.forEach(product => {
+    const div = document.createElement('div');
+    div.classList.add('swiper-slide');
+
+    div.innerHTML = `
+      <a class="card-link" href="help-details.html?id=${product?.id}" target="_blank" rel="noopener noreferrer nofollow"></a>
+      <div class="skeleton card">
+        <div class="skeleton card-image">
+          <img src="${product?.imgSrc}" alt="image">
+        </div>
+        <h3 class="skeleton card-text__name">${product?.name}</h3>
+        <p class="skeleton card-text__description">${product?.description}</p>
+      </div>
+    `;
+
+    swiperWrapper.appendChild(div);
+  });
 
   initSwiper();
 };
@@ -60,6 +44,16 @@ function initSwiper() {
 }
 
 document.addEventListener('DOMContentLoaded', renderData);
+
+
+/* skeletons */
+window.addEventListener('load', () => {
+  const allSkeletons = document.querySelectorAll('.skeleton');
+
+  allSkeletons.forEach(element => {
+    element.classList.remove('skeleton');
+  })
+})
 
 
 /* dropdown */
