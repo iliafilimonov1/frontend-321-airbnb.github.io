@@ -1,0 +1,9 @@
+@import "../css/fonts.css";
+@import "../css/normalize.css";
+@import "../css/style.css";
+@import "../css/forms.css";
+@import "../lib/swiper.css";
+@import "../css/modal.css";
+@import "../css/help.css";
+@import "../css/tabs.css";
+@import "../css/media.css"; /* в конце! */
