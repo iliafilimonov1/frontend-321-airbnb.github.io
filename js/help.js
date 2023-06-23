@@ -1,5 +1,11 @@
 import { data } from './data.js';
 
+// глобальная константа для получения страницы
+const GLOBAL = {
+  currentPage: window.location.pathname,
+};
+
+
 /* карточки */
 const renderData = () => {
   const swiperWrapper = document.querySelector('.swiper-wrapper');
@@ -27,12 +33,67 @@ const renderData = () => {
     swiperWrapper.appendChild(div);
   });
 
-  initSwiper();
+  initHelpSlider();
 };
 
 
-/* слайдер */
-function initSwiper() {
+// показ детальной информации на странице help-details 
+function displayHelpDetails() {
+  const helpUrlId = window.location.search.split("=")[1]; // получение id через URL
+
+  const details = data; // все данные в файле data.js
+
+  const cardInfo = details.find(card => card.id === helpUrlId); // находим карточку по id
+
+  const div = document.createElement("div");
+
+  div.innerHTML = `
+    <div class="flex">
+      <div class="details-card mr-9">
+        <!-- Slider main container and our classes -->
+        <div class="swiper card-image">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            ${cardInfo?.galleryImages.map(image => `
+              <div class="swiper-slide">
+                <img src="${image}" alt="${cardInfo?.name}"></img>
+              </div>`).join('')}
+          </div>
+          <div class="card-info">
+            <svg class="details-heart" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z">
+              </path>
+            </svg>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <div class="details-information">
+        <div class="information-descrption">
+          <h2 class="descrption-title">${cardInfo?.name}</h2>
+          <h3 class="descrption-subtitle">${cardInfo?.description}</h3>
+
+          <h3 class="descrption-subtitle">Price:</h3>
+          <p>${cardInfo?.price}</p>
+          <h3 class="descrption-subtitle">Category:</h3>
+          <p>${cardInfo?.category}</p>
+      </div>
+    </div>
+  `;
+
+  document.querySelector("#help-details").appendChild(div);
+
+  initDetailsSlider();
+}
+
+
+/* слайдер на стр. help */
+function initHelpSlider() {
   const swiper = new Swiper('.swiper', {
     slidesPerView: 4,
     spaceBetween: 30,
@@ -43,7 +104,21 @@ function initSwiper() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', renderData);
+
+/* слайдер на стр. help-details */
+function initDetailsSlider() {
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+}
 
 
 /* skeletons */
@@ -64,7 +139,6 @@ const dropDownMenu = document.querySelector('.dropdown-menu');
 dropDownButton.addEventListener('click', () => {
   dropDownMenu.classList.toggle('dropdown-show');
 })
-
 
 /* кли вне пунктов меню */
 document.addEventListener('click', (event) => {
@@ -99,7 +173,6 @@ document.addEventListener('click', (event) => {
 })
 
 
-
 /* tabs */
 document.addEventListener('DOMContentLoaded', () => {
   const tabs = document.querySelector('.tabs');
@@ -122,3 +195,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(`[data-tabs-target="${path}"]`).classList.add('tabs-content__active');
   }
 })
+
+
+function init() {
+  switch (GLOBAL.currentPage) {
+    case '/help.html':
+      renderData();
+      break;
+    case '/help-details.html':
+      displayHelpDetails();
+      break;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);

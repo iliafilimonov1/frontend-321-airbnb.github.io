@@ -7,12 +7,6 @@ body {
   min-height: 100vh;
 }
 
-header,
-.banner,
-footer {
-  display: none;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -44,7 +38,7 @@ img {
   margin-left: auto;
 }
 
-.row > * {
+.row>* {
   box-sizing: border-box;
   flex-shrink: 0;
   width: 100%;
@@ -275,8 +269,9 @@ main {
   stroke-width: 2;
   vertical-align: middle;
   position: absolute;
-  z-index: 1;
   /* перекрытие кликабельной ссылки на карточке */
+  z-index: 1;
+  cursor: pointer;
   top: 18px;
   right: 18px;
 }
