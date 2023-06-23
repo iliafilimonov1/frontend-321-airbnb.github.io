@@ -23,7 +23,7 @@
 
   <link rel="stylesheet" href="css/light.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="css/dark.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -159,8 +159,15 @@
   </header>
 
   <main>
-    <section>
-      <h2>Help Details</h2>
+
+    <section class="details-info">
+      <div class="container">
+        <a class="info-link" href="help.html">Home</a>
+
+        <div id="help-details">
+          <!-- Help Details Output -->
+        </div>
+      </div>
     </section>
   </main>
 
@@ -214,6 +221,7 @@
     </div>
   </footer>
 
+  <script src="lib/swiper.js"></script>
   <script src="js/theme-switcher.js"></script>
   <script type="module" src="js/help.js"></script>
 </body>

@@ -1,7 +1,7 @@
 /* skeletons */
-const allSkeletons = document.querySelectorAll('.skeleton');
-
 window.addEventListener('load', () => {
+  const allSkeletons = document.querySelectorAll('.skeleton');
+
   allSkeletons.forEach(element => {
     element.classList.remove('skeleton');
   })
@@ -57,7 +57,7 @@ dropDownButton.addEventListener('click', () => {
 
 /* кли вне пунктов меню */
 document.addEventListener('click', (event) => {
-  if(!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-button')) {
+  if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-button')) {
     dropDownMenu.classList.remove('dropdown-show');
   }
 })
